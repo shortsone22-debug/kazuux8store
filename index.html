@@ -3,192 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر Kacem - أزياء عصرية</title>
-    
+    <title>متجر Kacem - تسوق الموضة</title>
     <style>
-        /* (CSS) تنسيقات التصميم بالأحمر والأبيض */
-        
+        /* --- الأساسيات والتصميم المتجاوب --- */
         :root {
-            --primary-red: #d32f2f; /* لون أحمر غني ولطيف للعين */
-            --dark-red: #9a0007;
-            --white: #ffffff;
-            --light-bg: #f8f9fa;
-            --text-dark: #212121;
+            --primary-red: #e74c3c; /* لونك الأحمر من التصميم */
+            --light-bg: #fdfdfd;
+            --text-color: #2c3e50;
         }
 
         body {
-            font-family: 'Times New Roman', Times, serif; /* خط كلاسيكي للأزياء */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
             background-color: var(--light-bg);
-            color: var(--text-dark);
+            color: var(--text-color);
+            scroll-behavior: smooth; /* حركة التمرير السلس */
         }
 
         .container {
-            width: 85%;
-            margin: auto;
+            width: 90%;
             max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
         }
 
-        /* رأس الصفحة */
+        /* --- شريط الرأس (Header) --- */
         header {
-            background-color: var(--white);
-            padding: 15px 0;
-            border-bottom: 3px solid var(--primary-red);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        header .container {
+        nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap; /* للتجاوب على الهاتف */
         }
 
         .logo {
-            font-size: 30px;
+            font-size: 2rem;
+            letter-spacing: 5px;
             font-weight: bold;
-            color: var(--primary-red);
-            letter-spacing: 4px;
-            text-decoration: none;
+            margin: 0;
         }
 
-        nav ul {
+        .main-menu {
             list-style: none;
-            padding: 0;
             margin: 0;
+            padding: 0;
             display: flex;
             gap: 20px;
         }
 
-        nav a {
+        .main-menu a {
+            color: white;
             text-decoration: none;
-            color: var(--text-dark);
             font-weight: bold;
-            transition: 0.3s;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background 0.3s;
         }
 
-        nav a:hover {
-            color: var(--primary-red);
+        .main-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* البانر الترحيبي */
-        .hero {
-            background-color: var(--primary-red);
-            color: var(--white);
-            text-align: center;
-            padding: 80px 20px;
+        .icon-nav {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        .hero h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
-        /* شبكة المنتجات */
-        .main-content {
-            padding: 40px 0;
+        /* --- قسم المنتجات (الصفحة الرئيسية) --- */
+        #home {
+            padding: 50px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
             color: var(--primary-red);
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--dark-red);
-            margin: 10px auto;
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #7f8c8d;
         }
 
-        .products-grid {
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* شبكة متجاوبة */
+            gap: 30px;
         }
 
         .product-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
             border: 1px solid #eee;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s; /* مؤثرات التحويم */
+            cursor: pointer;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px); /* تكبير ناعم للبطاقة */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        .product-img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover; /* لضمان عدم تمدد الصورة */
-        }
-
-        .product-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .product-category {
-            font-size: 12px;
-            color: #777;
-            text-transform: uppercase;
-        }
-
-        .product-name {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 10px 0;
-            color: var(--text-dark);
-        }
-
-        .product-price {
-            font-size: 16px;
-            color: var(--primary-red);
-            font-weight: bold;
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
             margin-bottom: 15px;
         }
 
-        .add-to-cart {
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .product-card p {
+            color: var(--primary-red);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* --- قسم الطلب (نموذج الطلب) --- */
+        #order {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            border-top: 5px solid var(--primary-red);
+            /* مؤثر الانتقال: إخفاء القسم واظهاره عند الضغط على الطلب */
+            transition: opacity 0.5s ease-in-out;
+            opacity: 1; /* يمكنك تغييرها لـ 0 واستخدام JS لاظهارها */
+        }
+
+        .order-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.2);
+        }
+
+        .order-btn {
             background-color: var(--primary-red);
-            color: var(--white);
+            color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            font-weight: bold;
             cursor: pointer;
             width: 100%;
-            font-weight: bold;
             transition: background 0.3s;
         }
 
-        .add-to-cart:hover {
-            background-color: var(--dark-red);
+        .order-btn:hover {
+            background-color: #c0392b;
         }
 
-        /* تذييل الصفحة */
-        footer {
-            background-color: #f1f1f1;
-            padding: 20px;
-            text-align: center;
-            margin-top: 40px;
-            border-top: 1px solid #ddd;
+        /* --- مؤثرات الهاتف (Media Queries) --- */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+            .main-menu {
+                gap: 10px;
+            }
+            .order-form {
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -196,72 +220,79 @@
 
     <header>
         <div class="container">
-            <a href="#" class="logo">KACEM</a>
             <nav>
-                <ul>
-                    <li><a href="#">الرئيسية</a></li>
-                    <li><a href="#mens">رجالي</a></li>
-                    <li><a href="#womens">نسائي</a></li>
-                </ul>
+                <div class="container">
+                    <h1 class="logo">KACEM</h1>
+                    <ul class="main-menu">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#order" class="smooth-scroll">الطلب</a></li> </ul>
+                    <div class="icon-nav">جديدة mod</div> </div>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
+    <section id="home">
         <div class="container">
-            <h1>تشكيلة KACEM الجديدة</h1>
-            <p>الجودة الأناقة تتقاطع هنا. اكتشف أسلوبك الفريد اليوم.</p>
+            <h2 class="section-title">KACEM MASHOP</h2> <p class="section-subtitle">"تسوّق أحدث صيحات الموضة العالمية، جديدة و عصرية"</p> <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200?text=مودي" alt="مودي">
+                    <h3>صورة مودي</h3>
+                    <p>3000 DA</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200?text=تيشيرت" alt="تيشيرت">
+                    <h3>صورة تيشيرت</h3>
+                    <p>3500 DA</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200?text=يافي" alt="يافي">
+                    <h3>صورة يافي</h3>
+                    <p>2000 DA</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200?text=حذاء" alt="حذاء">
+                    <h3>صورة حذاء</h3>
+                    <p>4500 DA</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <main class="main-content">
+    <section id="order">
         <div class="container">
-            <h2 class="section-title">الأكثر مبيعاً</h2>
-            
-            <div class="products-grid">
-                
-                <div class="product-card" id="mens">
-                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&auto=format&fit=crop" alt="قميص كاجوال" class="product-img">
-                    <div class="product-info">
-                        <span class="product-category">رجالي</span>
-                        <h3 class="product-name">قميص عصري كاجوال</h3>
-                        <p class="product-price">180 ريال</p>
-                        <button class="add-to-cart" onclick="notify('قميص عصري')">أضف للسلة</button>
-                    </div>
-                </div>
+            <h2 class="section-title">إكمال طلبك</h2>
+            <p class="section-subtitle">أدخل بياناتك وسيصلك طلبك بأسرع وقت.</p>
 
-                <div class="product-card" id="womens">
-                    <img src="https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?q=80&w=600&auto=format&fit=crop" alt="معطف شتوي" class="product-img">
-                    <div class="product-info">
-                        <span class="product-category">نسائي</span>
-                        <h3 class="product-name">معطف أنيق وعصري</h3>
-                        <p class="product-price">350 ريال</p>
-                        <button class="add-to-cart" onclick="notify('معطف أنيق')">أضف للسلة</button>
-                    </div>
+            <form class="order-form">
+                <div class="input-group">
+                    <label>الاسم واللقب</label>
+                    <input type="text" placeholder="مثال: قاسم بن علي" required>
                 </div>
-
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1536766820879-059fec98ec0a?q=80&w=600&auto=format&fit=crop" alt="هودي عصري" class="product-img">
-                    <div class="product-info">
-                        <span class="product-category">رجالي</span>
-                        <h3 class="product-name">هودي مريح وشبابي</h3>
-                        <p class="product-price">220 ريال</p>
-                        <button class="add-to-cart" onclick="notify('هودي مريح')">أضف للسلة</button>
-                    </div>
+                <div class="input-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" placeholder="مثال: 0550123456" required>
                 </div>
-
-            </div>
+                <div class="input-group">
+                    <label>المدينة/الولاية (أين تسكن؟)</label>
+                    <input type="text" placeholder="مثال: الجزائر العاصمة" required>
+                </div>
+                <div class="input-group">
+                    <label>نوع الطلب (المنتج المطلوب)</label>
+                    <input type="text" placeholder="مثال: تيشيرت أبيض مقاس L" required>
+                </div>
+                <button type="submit" class="order-btn">تأكيد الطلب الآن</button>
+            </form>
         </div>
-    </main>
-
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; متجر KACEM 2026</p>
-    </footer>
+    </section>
 
     <script>
-        function notify(productName) {
-            alert('شكراً لتجربتك، يا قاسم! تم إضافة "' + productName + '" إلى سلة التسوق تخيلياً ✅.');
-        }
+        // كود لتسهيل الانتقال السلس (اختياري، CSS handle it well, but JS for extra control)
+        document.querySelector('.smooth-scroll').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     </script>
 
 </body>
