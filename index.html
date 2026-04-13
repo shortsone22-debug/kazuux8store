@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر Kacem - أزياء عصرية</title>
+    
+    <style>
+        /* (CSS) تنسيقات التصميم بالأحمر والأبيض */
+        
+        :root {
+            --primary-red: #d32f2f; /* لون أحمر غني ولطيف للعين */
+            --dark-red: #9a0007;
+            --white: #ffffff;
+            --light-bg: #f8f9fa;
+            --text-dark: #212121;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif; /* خط كلاسيكي للأزياء */
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        /* رأس الصفحة */
+        header {
+            background-color: var(--white);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--primary-red);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: var(--primary-red);
+            letter-spacing: 4px;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-red);
+        }
+
+        /* البانر الترحيبي */
+        .hero {
+            background-color: var(--primary-red);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* شبكة المنتجات */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-red);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--dark-red);
+            margin: 10px auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover; /* لضمان عدم تمدد الصورة */
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: var(--text-dark);
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: var(--primary-red);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--dark-red);
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">KACEM</a>
+            <nav>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#mens">رجالي</a></li>
+                    <li><a href="#womens">نسائي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>تشكيلة KACEM الجديدة</h1>
+            <p>الجودة الأناقة تتقاطع هنا. اكتشف أسلوبك الفريد اليوم.</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">الأكثر مبيعاً</h2>
+            
+            <div class="products-grid">
+                
+                <div class="product-card" id="mens">
+                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&auto=format&fit=crop" alt="قميص كاجوال" class="product-img">
+                    <div class="product-info">
+                        <span class="product-category">رجالي</span>
+                        <h3 class="product-name">قميص عصري كاجوال</h3>
+                        <p class="product-price">180 ريال</p>
+                        <button class="add-to-cart" onclick="notify('قميص عصري')">أضف للسلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card" id="womens">
+                    <img src="https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?q=80&w=600&auto=format&fit=crop" alt="معطف شتوي" class="product-img">
+                    <div class="product-info">
+                        <span class="product-category">نسائي</span>
+                        <h3 class="product-name">معطف أنيق وعصري</h3>
+                        <p class="product-price">350 ريال</p>
+                        <button class="add-to-cart" onclick="notify('معطف أنيق')">أضف للسلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1536766820879-059fec98ec0a?q=80&w=600&auto=format&fit=crop" alt="هودي عصري" class="product-img">
+                    <div class="product-info">
+                        <span class="product-category">رجالي</span>
+                        <h3 class="product-name">هودي مريح وشبابي</h3>
+                        <p class="product-price">220 ريال</p>
+                        <button class="add-to-cart" onclick="notify('هودي مريح')">أضف للسلة</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; متجر KACEM 2026</p>
+    </footer>
+
+    <script>
+        function notify(productName) {
+            alert('شكراً لتجربتك، يا قاسم! تم إضافة "' + productName + '" إلى سلة التسوق تخيلياً ✅.');
+        }
+    </script>
+
+</body>
+</html>
